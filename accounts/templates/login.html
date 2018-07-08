@@ -7,7 +7,7 @@
     <title>Django Authentication</title>
 </head>
 <body>
-    <h1>Home</h1>
+    <h1>User Login</h1>
     <nav>
         <ul>
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -16,6 +16,21 @@
             <li><a href="#">Profile</a></li>
         </ul>
     </nav>
+<!--
+    <hr>
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+-->    
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form }}
+        <button type="submit">Login</button>
+    </form>
     <hr>
     {% if messages %}
         <div>
